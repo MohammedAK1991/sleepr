@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
+import { ModelDefinition, MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
@@ -14,4 +14,8 @@ import { ConfigModule } from '@nestjs/config';
     }),
   ],
 })
-export class DatabaseModule {}
+export class DatabaseModule {
+  static forFeature(models: ModelDefinition[]) {
+    return MongooseModule.forFeature(models);
+  }
+}
