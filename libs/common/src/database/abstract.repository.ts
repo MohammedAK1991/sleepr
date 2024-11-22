@@ -19,7 +19,7 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
       .findOne(filterQuery)
       .lean<TDocument>(true);
     if (!document) {
-      this.logger.warn('Document not foun with dilterQuery: ', filterQuery);
+      this.logger.warn('Document not found with filterQuery: ', filterQuery);
       throw new NotFoundException('Document not found');
     }
     return document;
