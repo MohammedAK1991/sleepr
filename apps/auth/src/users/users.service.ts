@@ -8,4 +8,12 @@ export class UsersService {
   async create(createUserDto: CreateUserDto) {
     return this.usersRepository.create(createUserDto);
   }
+
+  async findAll() {
+    return this.usersRepository.find({});
+  }
+
+  async findOne(query) {
+    return this.usersRepository.findOne(query);
+  }
 }
